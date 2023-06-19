@@ -8,7 +8,7 @@ function assert () {
 }
 
 echo "*** Install dependencies ***"
-pacman --noconfirm -Sy wget arch-install-scripts dosfstools || assert
+pacman --noconfirm -Sy wget arch-install-scripts dosfstools pacman-contrib || assert
 
 echo "*** Create imagefile ***"
 dd if=/dev/zero of=eiftpi.img bs=100M count=18 || assert
@@ -68,9 +68,10 @@ echo "*** Stage1: install base ***"
 arch-chroot /mnt/ /usr/bin/bash -c 'sed -i "s/#ParallelDownloads = 5/ParallelDownloads = 20/g" /etc/pacman.conf' || assert
 arch-chroot /mnt/ /usr/bin/bash -c 'pacman-key --init' || assert
 arch-chroot /mnt/ /usr/bin/bash -c 'pacman-key --populate archlinuxarm' || assert
-arch-chroot /mnt/ /usr/bin/bash -c 'pacman --noconfirm -Sy arch-install-scripts pacman-contrib' || assert
-arch-chroot /mnt/ /usr/bin/bash -c 'cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup' || assert
-arch-chroot /mnt/ /usr/bin/bash -c 'rankmirrors -n 6 /etc/pacman.d/mirrorlist.backup > /etc/pacman.d/mirrorlist' || assert
+arch-chroot /mnt/ /usr/bin/bash -c 'sed "s/# Server/Server/g" /etc/pacman.d/mirrorlist > /etc/pacman.d/mirrorlist.backup' || assert
+rankmirrors -n 6 /mnt/etc/pacman.d/mirrorlist.backup > /mnt/etc/pacman.d/mirrorlist || assert
+arch-chroot /mnt/ /usr/bin/bash -c "pacman --noconfirm -Sy arch-install-scripts || sed -i 's/\[community\]/#\[community\]/g' /etc/pacman.conf" #Bug workaround??
+arch-chroot /mnt/ /usr/bin/bash -c 'pacman --noconfirm -Sy arch-install-scripts' || assert
 arch-chroot /mnt/ /usr/bin/bash -c 'pacstrap /mnt/ base' || assert
 arch-chroot /mnt/ /usr/bin/bash -c 'cp /etc/pacman.d/mirrorlist /mnt/etc/pacman.d/mirrorlist' || assert
 
