@@ -145,7 +145,7 @@ chown -R 0:0 locrootfs
 cp -a locrootfs/* /mnt/ || assert
 
 # Fixup permissions
-arch-chroot /mnt/ /usr/bin/bash -c 'chmod 600 /etc/NetworkManager/system-connections/phoneport.nmconnection' || assert
+arch-chroot /mnt/ /usr/bin/bash -c 'chmod 600 /etc/NetworkManager/system-connections/*' || assert
 
 ## Cleanup
 echo "*** Cleanup image ***"

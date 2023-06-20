@@ -1,5 +1,5 @@
 [connection]
-id=phoneport
+id=phoneport_rpi4
 type=ethernet
 autoconnect-priority=-999
 interface-name=end0
