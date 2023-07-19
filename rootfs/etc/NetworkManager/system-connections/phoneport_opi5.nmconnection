@@ -1,0 +1,17 @@
+[connection]
+id=phoneport_opi5
+type=ethernet
+autoconnect-priority=-999
+interface-name=end1
+
+[ipv4]
+address1=192.168.41.1/24
+ignore-auto-dns=true
+ignore-auto-routes=true
+may-fail=false
+method=manual
+never-default=true
+
+[ipv6]
+addr-gen-mode=default
+method=disabled
