@@ -2,7 +2,7 @@
 id=phoneport_rpi3
 type=ethernet
 autoconnect-priority=-999
-interface-name=enu1u1u1
+interface-name=enu1u1
 
 [ipv4]
 address1=192.168.41.1/24
