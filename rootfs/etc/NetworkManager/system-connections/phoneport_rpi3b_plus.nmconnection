@@ -1,5 +1,5 @@
 [connection]
-id=phoneport_rpi3
+id=phoneport_rpi3b_plus
 type=ethernet
 autoconnect-priority=-999
 interface-name=enu1u1u1
