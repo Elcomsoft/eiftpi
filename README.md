@@ -1,9 +1,7 @@
-# EIFTPI image for Raspberry Pi 3 / 4
+# EIFTPI image
 
 Currently this image supports the following functionality:
 - ProxyPI
-
-
 
 ## ProxyPI
 Proxy wired iOS internet connection and only allow cert server communication for safe agent signing.
@@ -38,7 +36,18 @@ If you want to use WiFi for uplink you need to:
 3) Run `sudo nmtui` and setup WiFi
 4) Finally, disconnect the computer and connect the iPhone to the builtin ethernet port of the Raspberry PI
 
+## Supported devices
+This image currently supports
+- Raspberry Pi 3B
+- Raspberry Pi 3B+
+- Raspberry Pi 4
+- Orage Pi 5
+- Orange Pi R1 LTS
 
+The *downlink* (i.e. the connection to the iPhone) is always the builtin ethernet port.  
+For *uplink* (connection to the internet) either an additional USB-to-Ethernet adapter or WiFi (on supported boards) can be used. 
+
+On the Orange Pi R1 LTS, the port next to the USB-C port is **uplink** while the other port (the one closer to the GPIO pins) is **downlink**.
 
 ## Building
 ### Pre-requirements
