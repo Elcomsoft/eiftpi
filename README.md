@@ -42,12 +42,12 @@ This image currently supports
 - Raspberry Pi 3B+
 - Raspberry Pi 4
 - Orage Pi 5
-- Orange Pi R1 LTS
+- Orange Pi R1 Plus LTS
 
 The *downlink* (i.e. the connection to the iPhone) is always the builtin ethernet port.  
 For *uplink* (connection to the internet) either an additional USB-to-Ethernet adapter or WiFi (on supported boards) can be used. 
 
-On the Orange Pi R1 LTS, the port next to the USB-C port is **uplink** while the other port (the one closer to the GPIO pins) is **downlink**.
+On the Orange Pi R1 Plus LTS, the port next to the USB-C port is **uplink** while the other port (the one closer to the GPIO pins) is **downlink**.
 
 ## Building
 ### Pre-requirements
